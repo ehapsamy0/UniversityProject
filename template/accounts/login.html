@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+    <div style="direction: rtl;" class="wrapper">
+
+    <!-- Content Wrapper. Contains page content -->
+    <div   class="content-wrapper" style="margin-right:0px">
+      <!-- Content Header (Page header) -->
+              <div class="content">
+                <div class="container-fluid">
+                     <div style="direction: rtl;" class="wrapper">
+                            <div class="row mt-5">
+                                <div class="col-md-8 m-auto">
+                                    <div class="card border-success mb-3 mt-4">
+                                      <div class="card-header bg-transparent border-success text-center"><h3>تسجيل الدخول</h3></div>
+                                      <div class="card-body">
+                                          <form method="post" action="{% url 'accounts:login_page' %}">
+                                              {% csrf_token %}
+                                              <div class="form-group">
+                                                  <label>اسم المستخدم</label>
+                                                  <input name="username" type="text" class="form-control">
+                                              </div>
+                                              <div class="form-group">
+                                                  <label>ادخل كلمه السر</label>
+                                                  <input name="password" type="password" class="form-control">
+                                              </div>
+                                              <div class="card-footer bg-transparent border-success">
+                                                  <button type="submit" class="btn btn-info">تسجيل الدخول</button>
+                                              </div>
+                                          </form>
+                                      </div>
+
+                                    </div>
+                            </div>
+                                <!-- /.container-fluid -->
+                        </div>
+
+        <!-- Content Wrapper. Contains page content -->
+
+          <!-- /.content -->
+              </div>
+        </div>
+    </div>
+</div>
+    <!-- /.content-wrapper -->
+
+
+{% endblock %}

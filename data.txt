@@ -1,0 +1,92 @@
+
+
+
+student:
+    - id
+    - name
+    - email
+    -phone
+    - image
+    - degree
+    
+
+
+doctores
+ - id
+ -name
+ -email
+ -phone
+    - image
+ - spe
+
+projects
+ - id
+ - name
+ - doctor
+ - description
+
+
+group
+ - id
+ - name 
+ - leader null 
+ - number student
+ - project
+
+GroupMember
+    - id
+    - nameStudent
+
+01091120168
+
+
+
+
+Teaching Assistants
+    - id 
+    - name
+    - email
+    - phone
+    image
+
+group Teaching Assistants
+    - id 
+    - Teaching
+    - group
+
+
+location
+    - id 
+    - name
+
+
+Lectures
+    - id 
+    - date time
+    - group
+    - location
+    
+
+Absence
+    - id
+    - Lectures
+
+
+Absence student
+    - id 
+    - student
+
+
+tasks Reports student
+    - id
+    - description
+    - student
+    - date time
+
+
+
+message doctor and Assistants
+    - id 
+    - description
+    - group
+    - message create 

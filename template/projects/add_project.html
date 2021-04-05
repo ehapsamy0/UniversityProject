@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% url 'projects:add_new_project' as add_projects %}
+{% url 'projects:update_projects' as update_projects %}
+<div class="col-md-12">
+    <div style="direction: rtl;" class="wrapper">
+        <div class="col-md-12">
+          <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper" style="margin:auto">
+                <!-- Content Header (Page header) -->
+                <div  class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">اضافه مشروع جديد</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form  method="POST" action="{% if request.path == add_projects%}{{add_projects}}{% else %}{{update_projects}}{% endif %}" enctype="multipart/form-data">
+                        <div class="card-body">
+                            {% csrf_token %}
+
+                        {{form}}
+
+                        </div>
+                      <!-- /.card-body -->
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">حفظ</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

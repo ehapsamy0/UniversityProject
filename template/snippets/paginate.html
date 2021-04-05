@@ -1,0 +1,53 @@
+{% if object.has_other_pages %}
+    <div class="row">
+    <div class="col-sm-12 col-md-5">
+        <div class="dataTables_info" id="add-row_info" role="status" aria-live="polite">
+            إظهار {{object.start_index }} إلى {{object.end_index }} من أصل {{object.paginator.count}} مدخلات
+
+
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-7">
+        <div class="dataTables_paginate paging_simple_numbers" id="add-row_paginate">
+            <ul class="pagination">
+                {% if object.has_previous %}
+                    <li class="paginate_button page-item previous" id="add-row_previous">
+                        <a href="?page={{ object.previous_page_number }}" aria-controls="add-row" data-dt-idx="0" tabindex="0" class="page-link">
+                            السابقه
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="paginate_button page-item previous disabled" id="add-row_previous">
+                        <a href="#" aria-controls="add-row" data-dt-idx="0" tabindex="0" class="page-link">
+                            السابقه
+                        </a>
+                    </li>
+                {% endif %}
+                {% for i in object.paginator.page_range %}
+                {% if object.number == i %}
+                <li class="paginate_button page-item active">
+                    <a href="?page={{ i }}" aria-controls="add-row" data-dt-idx="1" tabindex="0" class="page-link">
+                        {{i}}
+                    </a>
+                </li>
+                {% elif i > object.number|add:'-4' and i < object.number|add:'4' %}
+                    <li class="paginate_button page-item">
+                        <a href="?page={{ i }}" aria-controls="add-row" data-dt-idx="1" tabindex="0" class="page-link">
+                            {{i}}
+                        </a>
+                    </li>
+                {% endif %}
+                {% endfor %}
+                {% if object.has_next %}
+
+                <li class="paginate_button page-item next" id="add-row_next">
+                    <a href="?page={{object.next_page_number}}" aria-controls="add-row" data-dt-idx="3" tabindex="0" class="page-link">
+                        التالى
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endif %}
